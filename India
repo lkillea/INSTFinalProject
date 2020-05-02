@@ -16,4 +16,8 @@ placement.sort_values("etest_p", axis = 0, ascending = False, inplace = True)
 #Use .head() function to see top 50 rows
 placement.head(50)
 
+#Sort Values Based on Lowest Test Scores to Determine the difference in Acceptance
+placement.sort_values("etest_p", axis = 0, ascending = True, inplace = True)
+placement.head(50)
+
 
