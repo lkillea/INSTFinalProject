@@ -1,2 +1,14 @@
+#Apply graphing and statistical tools
 import pandas as pd
-import matplotlib as plt
+import matplotlib.pyplot as plt
+
+#Read the File
+placement = pd.read_csv("PlacementData.csv")
+
+#Get Summary of Variables and Observations in Dataset
+placement.count()
+
+#Get Basic Descriptive Statistics from Dataset
+placement.describe()
+
+
