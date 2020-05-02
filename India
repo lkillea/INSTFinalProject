@@ -11,4 +11,9 @@ placement.count()
 #Get Basic Descriptive Statistics from Dataset
 placement.describe()
 
+#Sort Values Based on Highest Test Scores to Determine its Effect
+placement.sort_values("etest_p", axis = 0, ascending = False, inplace = True)
+#Use .head() function to see top 50 rows
+placement.head(50)
+
 
