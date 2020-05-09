@@ -20,4 +20,32 @@ placement.head(50)
 placement.sort_values("etest_p", axis = 0, ascending = True, inplace = True)
 placement.head(50)
 
+#Average of overall
+placement['salary'].mean()
 
+#New data frame to join
+overall = pd.DataFrame({'gender' : 'All','salary': [placement['salary'].mean()]})
+overall.head()
+
+#Filtering by gender and salary columns
+new = placement[['gender','salary']]
+new.head()
+
+#Merging two data frames
+frames = pd.merge(overall, new, how = 'outer')
+frames = frames.groupby(['gender']).mean()
+frames.head()
+
+df = frames.plot.bar(title ='average')
+plt.ylabel('Salary in Rupee')
+
+#Bar plots
+gender = salary.index[:]
+gender_array = np.arange()
+ave_salary = salary['salary'].values[:]
+
+plt.bar(gender_array, ave_salary, color = '#f44c44')
+plt.xticks(gender_array, gender)
+plt.title("Average Salaries in Gender")
+plt.ylabel("Salary in Rupee")
+plt.show()
