@@ -59,3 +59,7 @@ Salaries_by_HS_Specialization.plot.bar()
 plt.title('Salary Based off Class 12 Specialization')
 plt.xlabel('Class 12 Specialization')
 plt.ylabel('Annual Salary')
+
+#Sort Data Based off Top 50 Salaries to Note Certain Differences
+placement.sort_values('salary', axis = 0, ascending = False, inplace = True)
+placement.head(50)
