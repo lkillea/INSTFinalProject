@@ -40,15 +40,9 @@ df = frames.plot.bar(title ='average')
 plt.ylabel('Salary in Rupee')
 
 #Bar plots
-gender = salary.index[:]
-gender_array = np.arange()
-ave_salary = salary['salary'].values[:]
-
-plt.bar(gender_array, ave_salary, color = '#f44c44')
-plt.xticks(gender_array, gender)
+df = frames.plot.bar()
 plt.title("Average Salaries in Gender")
-plt.ylabel("Salary in Rupee")
-plt.show()
+plt.ylabel('Salary in Rupee')
 
 #Bar Plot #2: hsc_c and Salary
 import pandas as pd
@@ -59,7 +53,3 @@ Salaries_by_HS_Specialization.plot.bar()
 plt.title('Salary Based off Class 12 Specialization')
 plt.xlabel('Class 12 Specialization')
 plt.ylabel('Annual Salary')
-
-#Sort Data Based off Top 50 Salaries to Note Certain Differences
-placement.sort_values('salary', axis = 0, ascending = False, inplace = True)
-placement.head(50)
