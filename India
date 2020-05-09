@@ -49,3 +49,13 @@ plt.xticks(gender_array, gender)
 plt.title("Average Salaries in Gender")
 plt.ylabel("Salary in Rupee")
 plt.show()
+
+#Bar Plot #2: hsc_c and Salary
+import pandas as pd
+import matplotlib.pyplot as plt
+Salaries_by_HS_Specialization = placement.groupby(['hsc_s']).mean()
+%pylab inline
+Salaries_by_HS_Specialization.plot.bar()
+plt.title('Salary Based off Class 12 Specialization')
+plt.xlabel('Class 12 Specialization')
+plt.ylabel('Annual Salary')
