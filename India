@@ -53,3 +53,57 @@ Salaries_by_HS_Specialization.plot.bar()
 plt.title('Salary Based off Class 12 Specialization')
 plt.xlabel('Class 12 Specialization')
 plt.ylabel('Annual Salary')
+
+
+"""Work experience effect on placement and salary"""
+
+#  seperate the dataset based on work experience. 
+no_work_experience = placement[placement['workex'] == 'No']
+yes_work_experience = placement[placement['workex'] == 'Yes']
+
+# compare average salaries between work experience and no work experience. 
+
+no_work_average_salary = round(no_work_experience['salary'].mean(), 2)
+yes_work_average_salary = round(yes_work_experience['salary'].mean(), 2)
+
+percentage_difference = round(((yes_work_average_salary - no_work_average_salary) / no_work_average_salary) * 100, 2)
+print(f"Those with work experience had a higher salary by an average of {percentage_difference} percent.")
+
+#  plot a graph showing the difference in salaries between work experience and no work experience
+
+work_ex_salary_bar_graph = placement.groupby(['workex']).mean()
+work_ex_salary_bar_graph.plot.bar()
+plt.title("Average Salaries by Work Experience")
+plt.xlabel("work experience")
+plt.ylabel("Salary in Rupees")
+
+#  compare the number of individuals that got placed in no_work_experience
+
+no_work_placement = no_work_experience['status'].value_counts()
+total_no_work_placement = no_work_placement['Placed'] + no_work_placement['Not Placed']
+no_work_placement_percentage = round((no_work_placement['Placed'] / total_no_work_placement) * 100, 2)
+
+print(f"Among those with no work experience {no_work_placement_percentage} percent received a placement status.")
+
+#  compare the number of individuals that got placed in yes_work_experience
+
+yes_work_placement = yes_work_experience['status'].value_counts()
+total_yes_work_placement = yes_work_placement['Placed'] + yes_work_placement['Not Placed']
+yes_work_experience_percentage = round((yes_work_placement['Placed'] / total_yes_work_placement) * 100, 2)
+
+print(f"Among those with work experience {yes_work_experience_percentage} percent received a placement status.")
+
+print(f"Therefore work experience lead to a {round(yes_work_experience_percentage - no_work_placement_percentage, 2)} higher chance of obtaining placement.")
+
+#  insert graphing method below
+
+values1 = [no_work_placement_percentage, (100 - no_work_placement_percentage)]
+labels1 = [f"Placed", f"Not Placed"]
+
+plt.pie(values1, labels=labels1, autopct="%.1f%%")
+plt.show()
+
+values2 = [yes_work_experience_percentage, (100 - yes_work_experience_percentage)]
+labels2 = ["placed", "Not Placed"]
+plt.pie(values2, labels=labels2, autopct="%.1f%%")
+plt.show()
