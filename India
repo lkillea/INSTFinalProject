@@ -55,7 +55,7 @@ plt.xlabel('Class 12 Specialization')
 plt.ylabel('Annual Salary')
 
 
-"""Work experience effect on placement and salary"""
+"""Work experience effect on placement and salary""" -John Clark
 
 #  seperate the dataset based on work experience. 
 no_work_experience = placement[placement['workex'] == 'No']
@@ -107,3 +107,5 @@ values2 = [yes_work_experience_percentage, (100 - yes_work_experience_percentage
 labels2 = ["placed", "Not Placed"]
 plt.pie(values2, labels=labels2, autopct="%.1f%%")
 plt.show()
+
+"""End of section"""
